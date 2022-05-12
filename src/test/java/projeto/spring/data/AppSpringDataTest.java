@@ -94,5 +94,19 @@ public class AppSpringDataTest {
 		}
 	}
 	
-
+	@Test
+	public void buscarPorNomeParam(){
+		
+		UsuarioSpringData usuarioSpringData =  interfaceSpringUser.buscarPorNomeParam("Fabio");
+				
+			System.out.println("Id: " + usuarioSpringData.getId());
+			System.out.println("Nome: " + usuarioSpringData.getNome());
+			System.out.println("Email: " + usuarioSpringData.getEmail());
+			System.out.println("Idade: " + usuarioSpringData.getIdade());
+			System.out.println("Login: " + usuarioSpringData.getLogin());
+			System.out.println("Senha: " + usuarioSpringData.getSenha());
+			System.out.println("----------------------------");
+		}
+	
 }
+
