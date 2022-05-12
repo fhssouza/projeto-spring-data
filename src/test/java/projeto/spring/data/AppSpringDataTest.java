@@ -1,5 +1,6 @@
 package projeto.spring.data;
 
+import java.util.Iterator;
 import java.util.Optional;
 
 import org.junit.Test;
@@ -42,6 +43,23 @@ public class AppSpringDataTest {
 		System.out.println(usuarioSpringData.get().getLogin());
 		System.out.println(usuarioSpringData.get().getSenha());
 		System.out.println(usuarioSpringData.get().getId());
+	}
+	
+	@Test
+	public void consultarTodos() {
+		
+		Iterable<UsuarioSpringData> usuarioSpringData = interfaceSpringUser.findAll();
+		
+		for (UsuarioSpringData usuarioSpringData2 : usuarioSpringData) {
+			System.out.println("Id: " + usuarioSpringData2.getId());
+			System.out.println("Nome: " + usuarioSpringData2.getNome());
+			System.out.println("Email: " + usuarioSpringData2.getEmail());
+			System.out.println("Idade: " + usuarioSpringData2.getIdade());
+			System.out.println("Login: " + usuarioSpringData2.getLogin());
+			System.out.println("Senha: " + usuarioSpringData2.getSenha());
+			System.out.println("----------------------------");
+		}
+		
 	}
 
 }
