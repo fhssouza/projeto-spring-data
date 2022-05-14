@@ -2,6 +2,9 @@ package projeto.spring.data.dao;
 
 import java.util.List;
 
+import javax.persistence.LockModeType;
+
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -17,6 +20,7 @@ public interface InterfaceSpringDataUser extends CrudRepository<UsuarioSpringDat
 	@Query(value = "select p from UsuarioSpringData p where p.nome like %?1%")
 	public List<UsuarioSpringData> buscarPorNome(String nome);
 	
+	@Lock(LockModeType.READ)
 	@Query(value = "select p from UsuarioSpringData p where p.nome = :paramnome")
 	public UsuarioSpringData buscarPorNomeParam(@Param("paramnome") String paramnome);
 	
